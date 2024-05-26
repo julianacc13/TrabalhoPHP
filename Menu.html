@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria...</title>
+
+    <style>
+
+        /* ESTILO GERAL */
+        * {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin:0;
+        }
+        
+
+        body {
+            background-color: #dfe4dd; /*cor do fundo*/
+            height: 100vh; /*para ocupar toda a tela*/
+            text-align: center;
+        }
+
+        .flex {
+            display: flex; /*flexível*/
+        }
+
+        .btn-entrar button { /*personalização botão entrar do menu de cima*/
+            padding: 10px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #9d564d;
+            border: 0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .2s;
+            color: #fff;
+            margin-right: 0px;
+        }
+
+        .btn-entrar-conta button { /*personalização botão entrar do menu de cima*/
+            padding: 10px 40px;
+            font-size: 18px;
+            background-color: #9d564d;
+            border: 0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .2s;
+            color: #fff;
+        }
+
+        h2.titulo { /*t central*/
+            color: #9ca185;
+            font-size: 30px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        button:hover{ /*hover dos botoens*/
+            transform: scale(1.05);
+        }
+
+        /* ESTILO DO CABEÇALHO */
+        header {
+            padding: 10px;
+            list-style: 1px;
+            background-color: #9ca185;
+        }
+
+        header>.interface { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            transition: .2s;
+        }
+
+        header nav.menu-desktop a:hover {
+            color: #9d564d ;
+        }
+
+        header nav.menu-desktop ul li {
+            display: inline-block;
+            padding: 0 40px;
+        }
+
+        /* ESTILO DO TOPO DO SITE */
+        section.topo-do-site {
+            padding: 40px 4%;
+        }
+
+        .topo-do-site h1 { /*titulo de cima*/
+            color: #9ca185;
+            font-size: 40px;
+            text-align: center;
+            text-shadow: 2px 1px rgb(167, 168, 168);
+        }
+
+        .topo-do-site .txt-topo-site p {/*texto de cima*/
+            color: #000000;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+
+        /* ESTILO DOS LIVROS EM DESTAQUE */
+        section.livros {
+            padding: 100px;
+        }
+
+        .livros .livros-box { /*caixas personalização*/
+            color: #000000;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 45px;
+            margin: 10px;
+            transition: .2s;
+            background-color: #be8983;
+        }
+
+        .livros .livros-box:hover { /*hover box de livros*/
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #9d564d;
+            
+        }
+
+        .livros .livros-box h3 { /*titulo box de livros*/
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        /* ESTILO DO RODAPÉ */
+        footer {
+            background-color: #9ca185;
+            position: absolute;
+            width: 100%;
+            padding: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="#">
+                    <img src="imagem/livro.png.png" alt="Imagem de livro" width="90px">
+                </a>
+            </div><!--imagem cabeçalho "logo"-->
+
+            <nav class="menu-desktop"> <!--menu de cima-->
+                <ul>
+                    <b>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Meus empréstimos</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </b>
+                </ul>
+            </nav>
+
+            <div class="btn-entrar"> <!--botao entrar de cima-->
+                <a href="#">
+                    <button>Entrar</button>
+                </a>
+            </div>
+        </div><!--interface-->
+    </header>
+    
+    <main>
+        <section class="topo-do-site">
+            <div class="interface">
+                    <div class="txt-topo-site">
+                        <h1>A sua livraria digital<span>!</span></h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+
+                        <div class="btn-entrar-conta" >
+                            <a href="#">
+                                <button>Entre com sua conta</button>
+                            </a>
+                        </div>
+                    </div><!--txt-topo-site-->
+        </section><!--topo-do-site-->
+        <h2 class="titulo">Alguns de nossos títulos disponíveis:</h2>
+        <section class="livros">
+            <div class="interface">
+                <div class="flex">
+                    <div class="livros-box">
+                        <h3>Livro 1</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <img src="search3.png" alt="Imagem livro"/>
+                    </div>
+
+                    <div class="livros-box">
+                        <h3>Livro 2</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <img src="search3.png" alt="Imagem livro"/>
+                    </div>
+
+                    <div class="livros-box">
+                        <h3>Livro 3</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <img src="search3.png" alt="Imagem livro"/>
+                    </div>
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--especiliadades-->
+    </main>
+
+    <footer>
+        teste
+    </footer>
+
+</body>
+</html>
