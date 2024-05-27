@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <style>
+        body{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            background-color: #9ca185;
+            display: flex;
+            justify-content: center;
+        }
+
+        .titulo{
+            text-align: center;
+            padding: 10px;
+            margin-top: 1px;
+            font-size: 30px;
+            color: #9d564d;
+        }
+
+        .container{ 
+        max-width: 600px; /*largura do bloco*/
+        margin: 50px auto; /*margem de fora*/
+        padding: 30px; /*espaço interno entre a borda e elementos da box*/
+        border-radius: 10px; /* borda redondinha*/
+        background-color: #e0edda;
+        border: 2px solid #ccc;
+        }
+
+        input{
+        width: 100%; /*largura dos inputs*/
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; 
+        }
+
+        .button{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+        color: #fff;
+        background-color: #9d564d;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <section>
+            
+            <div class="container">
+            <form action = " " method = " ">
+                <h1 class = "titulo">Entrar</h1>
+
+                <label for="nome"><b>E-mail: </b></label>
+                <input type="text" placeholder="Digite seu e-mail" name="email" id="idemail"><br><br>
+
+                <label for="nome"> <b>Senha: </b></label>
+                <input type="password" placeholder="Crie uma senha" id="senha" name="senha" maxlength="20"><br><br>
+
+                <input class="button" type="submit" value="Entrar">
+            </form>
+        </section>
+    </div>
+</body>
+</html>
