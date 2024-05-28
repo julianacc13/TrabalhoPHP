@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acervo Livros</title>
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #dfdfdf; /* cor do fundo */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* para ocupar toda a tela */
+            text-align: center;
+        }
+
+        .flex {
+            display: flex; /* flexível */
+        }
+
+        header {
+            padding: 10px;
+            background-color: #5d653e;
+        }
+
+        header > .interface { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            transition: .2s;
+        }
+
+        header nav.menu-desktop a:hover { /* hover do header menu */
+            color: #9d564d ;
+        }
+
+        header nav.menu-desktop ul li {
+            display: inline-block;
+            padding: 0 40px;
+        }
+
+        /* ESTILO DO TOPO DO SITE */
+        section.topo-do-site {
+            padding: 30px;
+            margin-top: 0; /* Ajustado de 50px para 0 */
+        }
+
+        .topo-do-site h1 { /* título de cima */
+            color: #5d653e;
+            font-size: 40px;
+            text-align: center;
+            text-shadow: 2px 1px rgb(167, 168, 168);
+            margin-top: 10px;
+        }
+
+        .topo-do-site .txt-topo-site { /* texto de cima */
+            color: #9d564d;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        /* ESTILO DO RODAPÉ */
+        footer {
+            background-color: #5d653e;
+            width: 100%;
+            padding: 30px;
+            margin-top: auto;
+            color: #fff;
+        }
+
+        .box-card {
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            cursor: pointer;
+            width: 230px;
+            min-width: 200px;
+            height: 200px;
+            min-height: 300px;
+            position: relative;
+            margin: 50px;
+            padding: 20px;
+        }
+
+        .frente, .verso {
+            display: flex;
+            border-radius: 0px;
+            background-position: center;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: ease-in-out 600ms;
+        }
+
+        .frente {
+            padding: 20px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .frente:before {
+            position: absolute;
+            display: inline;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #989e7d;
+            z-index: -1;
+        }
+
+        .card:hover .frente {
+            transform: rotateY(180deg);
+        }
+
+        .card:nth-child(even):hover .frente {
+            transform: rotateY(-180deg);
+        }
+
+        .verso {
+            background: #ffffff;
+            transform: rotateY(-180deg);
+            padding: 20px;
+        }
+
+        .verso p { 
+            width: 100%; 
+            float: left; 
+            margin-bottom: 20px; 
+            color: #000000; 
+        }
+
+        .card:hover .verso {
+            transform: rotateY(0deg);
+        }
+
+        .box{
+
+            text-align: left;
+            
+        }
+
+        img.img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="#">
+                    <img src="imagem/livro.png.png" alt="Imagem de livro" width="90px">
+                </a>
+            </div>
+
+            <nav class="menu-desktop"> <!-- menu de cima -->
+                <ul>
+                    <b>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Acervo</a></li>
+                        <li><a href="#">Meus empréstimos</a></li>
+                        <li><a href="#">Sobre</a></li>
+                    </b>
+                </ul>
+            </nav>
+        </div><!-- interface -->
+    </header> 
+
+    <main>
+        <section class="topo-do-site">
+            <div class="interface">
+                <h1>Confira nosso catálogo</h1>
+                <p class="txt-topo-site"><b>Explore nossa estante virtual e encontre sua próxima aventura!</b></p>
+            </div><!-- txt-topo-site -->
+        </section><!-- topo-do-site -->
+
+        <div class="linha1">
+            <div class="box-card">
+                <a target="_blank" class="card">
+                    <div class="frente"><!-- imagem principal -->      
+                        <img class="img" src="imagem/AmorNaoObvio.jpg" alt="Livro 1"/>      
+                    </div><!-- Frente -->
+
+                    <div class="verso"> <!-- verso escrita -->
+                        <div class="box"> 
+                            <p>Genero: Romance LGBTQI+</p>
+                            <p>Autor(a): Elayne Baeta</p>
+                            <p>N° páginas: 392</p>
+                            <p>Ano de Lançamento: 2019</p>
+                            <p>Editora: Galeria Record</p>
+                        </div>
+                    </div><!-- Verso -->
+                </a><!-- Card 1 -->   
+                
+                <a target="_blank" class="card">
+                    <div class="frente"><!-- imagem principal -->      
+                        <img class="img" src="imagem/LivrariaDosAchadosPerdidos.jpg" alt="Livro 2"/>      
+                    </div><!-- Frente -->
+
+                    <div class="verso"> <!-- verso escrita -->
+                        <div class="box"> 
+                            <p>Genero: Ficção</p>
+                            <p>Autor(a): Susan Wiggs</p>
+                            <p>N° páginas: 368</p>
+                            <p>Ano de Lançamento: 2020</p>
+                            <p>Editora: Harlequin Books</p>
+                        </div>
+                    </div><!-- Verso -->
+                </a><!-- Card 2 -->   
+
+                <a target="_blank" class="card">
+                    <div class="frente"><!-- imagem principal -->      
+                        <img class="img" src="imagem/Aseleção.jpg" alt="Livro 3"/>      
+                    </div><!-- Frente -->
+
+                    <div class="verso"> <!-- verso escrita -->
+                        <div class="box"> 
+                            <p>Genero: Romance</p>
+                            <p>Autor(a): Kiera Cass</p>
+                            <p>N° páginas: 368</p>
+                            <p>Ano de Lançamento: 2012</p>
+                            <p>Editora: Seguinte</p>
+
+                        </div>
+                    </div><!-- Verso -->
+                </a><!-- Card 3 -->  
+                
+                
+                <a target="_blank" class="card">
+                    <div class="frente"><!-- imagem principal -->      
+                        <img class="img" src="imagem/OceanoEntreNós.png" alt="Livro 4"/>      
+                    </div><!-- Frente -->
+
+                    <div class="verso"> <!-- verso escrita -->
+                        <div class="box"> 
+                            <p>Genero: Romance</p>
+                            <p>Autor(a): Tahereh Mafi</p>
+                            <p>N° páginas: 304</p>
+                            <p>Ano de Lançamento: 2021</p>
+                            <p>Editora: Universo dos Livros</p>
+                        </div>
+                        
+                    </div><!-- Verso -->
+                </a><!-- Card 4 -->   
+            </div><!-- fechamento linha 1 -->
+
+            <div class="linha1">
+                <div class="box-card">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/AssimQueComeça.jpg" alt="Livro 5"/>      
+                        </div><!-- Frente -->
+        
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance</p>
+                                <p>Autor(a): Colleen Hoover</p>
+                                <p>N° páginas: 366</p>
+                                <p>Ano de Lançamento: 2022</p>
+                                <p>Editora: Galera</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 5 -->   
+                    
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/DeSangueCinzas.jpg" alt="Livro 6"/>      
+                        </div><!-- Frente -->
+        
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Fantasia</p>
+                                <p>Autor(a): Jennifer L. Armentrout</p>
+                                <p>N° páginas: 671</p>
+                                <p>Ano de Lançamento: 2021</p>
+                                <p>Editora: Galera</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 6 -->   
+        
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/EmChamas.jpg" alt="Livro 7"/>      
+                        </div><!-- Frente -->
+        
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Ficção</p>
+                                <p>Autor(a): Suzenne Collins</p>
+                                <p>N° páginas: 413</p>
+                                <p>Ano de Lançamento: 2011</p>
+                                <p>Editora: Rocco</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 7 -->  
+                    
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/TodoEsseTempo.jpg" alt="Livro 8"/>      
+                        </div><!-- Frente -->
+        
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance</p>
+                                <p>Autor(a): Mikki Daughtry, Rachael Lippincott</p>
+                                <p>N° páginas: 342</p>
+                                <p>Ano de Lançamento: 2020</p>
+                                <p>Editora: Globo Alt</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 8 -->   
+                </div><!-- fechamento linha 1 -->
+
+                <div class="linha1">
+                    <div class="box-card">
+                        <a target="_blank" class="card">
+                            <div class="frente"><!-- imagem principal -->      
+                                <img class="img" src="imagem/PacienteSilenciosa.jpg" alt="Livro 9"/>      
+                            </div><!-- Frente -->
+            
+                            <div class="verso"> <!-- verso escrita -->
+                                <div class="box"> 
+                                    <p>Genero: Suspense</p>
+                                    <p>Autor(a): Alex Michaelides</p>
+                                    <p>N° páginas: 350</p>
+                                    <p>Ano de Lançamento: 2019</p>
+                                    <p>Editora: Record</p>
+                                </div>
+                            </div><!-- Verso -->
+                        </a><!-- Card 9 -->   
+                        
+                        <a target="_blank" class="card">
+                            <div class="frente"><!-- imagem principal -->      
+                                <img class="img" src="imagem/SomosInevitáveis.jpg" alt="Livro 10"/>      
+                            </div><!-- Frente -->
+            
+                            <div class="verso"> <!-- verso escrita -->
+                                <div class="box"> 
+                                    <p>Genero: Romance</p>
+                                    <p>Autor(a): Gayle Forman</p>
+                                    <p>N° páginas: 256</p>
+                                    <p>Ano de Lançamento: 2022</p>
+                                    <p>Editora: Arqueiro</p>
+                                </div>
+                            </div><!-- Verso -->
+                        </a><!-- Card 10 -->   
+            
+                        <a target="_blank" class="card">
+                            <div class="frente"><!-- imagem principal -->      
+                                <img class="img" src="imagem/PrincipeCruel.jpg" alt="Livro 11"/>      
+                            </div><!-- Frente -->
+            
+                            <div class="verso"> <!-- verso escrita -->
+                                <div class="box"> 
+                                    <p>Genero: Fantasia</p>
+                                    <p>Autor(a): Holly Black</p>
+                                    <p>N° páginas: 322</p>
+                                    <p>Ano de Lançamento: 2018</p>
+                                    <p>Editora: Galera Record</p>
+                                </div>
+                            </div><!-- Verso -->
+                        </a><!-- Card 11 -->  
+                        
+                        <a target="_blank" class="card">
+                            <div class="frente"><!-- imagem principal -->      
+                                <img class="img" src="imagem/CorteAsasRuinas.jpg" alt="Livro 12"/>      
+                            </div><!-- Frente -->
+            
+                            <div class="verso"> <!-- verso escrita -->
+                                <div class="box"> 
+                                    <p>Genero: Fantasia Romantica</p>
+                                    <p>Autor(a): Sara J.Maas</p>
+                                    <p>N° páginas: 600</p>
+                                    <p>Ano de Lançamento: 2017</p>
+                                    <p>Editora: Galera Record</p>
+                                </div>
+                            </div><!-- Verso -->
+                        </a><!-- Card 12 -->   
+                    </div><!-- fechamento linha 3 -->
+                </div><!-- Box Card -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Biblioteca Virtual. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+

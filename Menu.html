@@ -16,7 +16,7 @@
 
         body {
             background-color: #dfe4dd; /*cor do fundo*/
-            height: 100vh; /*para ocupar toda a tela*/
+            height: 100px; /*para ocupar toda a tela*/
             text-align: center;
         }
 
@@ -24,7 +24,7 @@
             display: flex; /*flexível*/
         }
 
-        .btn-entrar button { /*personalização botão entrar do menu de cima*/
+        .btn-criarConta button { /*personalização botão criar conta do menu de cima*/
             padding: 10px 40px;
             font-size: 18px;
             font-weight: 600;
@@ -34,7 +34,7 @@
             cursor: pointer;
             transition: .2s;
             color: #fff;
-            margin-right: 0px;
+            
         }
 
         .btn-entrar-conta button { /*personalização botão entrar do menu de cima*/
@@ -48,8 +48,21 @@
             color: #fff;
         }
 
+        .btn-emprestar button { /*personalização botão emprestar livro*/
+            padding: 10px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #9ca185;
+            border: 1px solid #9d564d;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .2s;
+            color: #000000;
+            margin-right: 0px;
+        }
+
         h2.titulo { /*texto central*/
-            color: #9ca185;
+            color: #5d653e;
             font-size: 30px;
             text-align: center;
             padding: 10px;
@@ -63,8 +76,8 @@
         header {
             padding: 10px;
             list-style: 1px;
-            background-color: #9ca185;
-            width: 100%;
+            background-color: #5d653e;
+            
         }
 
         header>.interface { 
@@ -91,11 +104,11 @@
 
         /* ESTILO DO TOPO DO SITE */
         section.topo-do-site {
-            padding: 40px 4%;
+            padding: 40px;
         }
 
         .topo-do-site h1 { /*titulo de cima*/
-            color: #9ca185;
+            color: #5d653e;
             font-size: 40px;
             text-align: center;
             text-shadow: 2px 1px rgb(167, 168, 168);
@@ -103,22 +116,28 @@
 
         .topo-do-site .txt-topo-site p {/*texto de cima*/
             color: #000000;
-            margin: 40px 0;
+            margin: 60px 0;
             text-align: center;
+            font-size: 25px;
+            text-shadow: 2px 1px #9ca185;
+            margin-left: 100px;
+            margin-right: 100px;
+            
         }
 
 
         /* ESTILO DOS LIVROS EM DESTAQUE */
         section.livros {
-            padding: 100px;
+            padding: 60px;
         }
 
         .livros .livros-box { /*caixas personalização*/
             color: #000000;
             padding: 50px;
             border-radius: 20px;
-            margin-top: 45px;
-            margin: 10px;
+            margin-left: auto;
+            margin-right: auto; 
+            height: 500px;
             transition: .2s;
             background-color: #be8983;
         }
@@ -129,18 +148,34 @@
             
         }
 
+        img.img-box{
+            width: 230px;
+            margin: 10px;
+            background-color: #000000;
+        }
+
         .livros .livros-box h3 { /*titulo box de livros*/
-            font-size: 30px;
-            margin: 15px 0;
+            font-size: 20px;
+            padding: 10px;
         }
 
         /* ESTILO DO RODAPÉ */
         footer {
-            background-color: #9ca185;
-            position: absolute;
-            width: 100%;
+            background-color: #5d653e;
             padding: 40px;
+            color: white;
         }
+        .titulocontato{
+            color: #5d653e;
+        }
+        /*.contato1{
+            float: right;
+            
+        }
+        .contato2{
+            float: left;
+            margin-top: -55px;
+        }*/
 
     </style>
 </head>
@@ -157,16 +192,16 @@
                 <ul>
                     <b>
                     <li><a href="#">Início</a></li>
-                    <li><a href="#">Catálogo</a></li>
-                    <li><a href="#">Meus empréstimos</a></li>
+                    <li><a href="#">Acervo</a></li>
+                    <li><a href="#">Meus Empréstimos</a></li>
                     <li><a href="#">Sobre</a></li>
                 </b>
                 </ul>
             </nav>
 
-            <div class="btn-entrar"> <!--botao entrar de cima-->
+            <div class="btn-criarConta"> <!--botao criarConta de cima-->
                 <a href="#">
-                    <button>Entrar</button>
+                    <button>Criar Conta</button>
                 </a>
             </div>
         </div><!--interface-->
@@ -176,8 +211,8 @@
         <section class="topo-do-site">
             <div class="interface">
                     <div class="txt-topo-site">
-                        <h1>A sua livraria digital<span>!</span></h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        <h1>A sua Livraria Digital<span>!</span></h1>
+                        <p><em>Explore nossa vasta coleção de livros digitais, mergulhe em mundos imaginários, viaje por épocas e culturas, e descubra o poder transformador das palavras.</em></p>
 
                         <div class="btn-entrar-conta" >
                             <a href="#">
@@ -191,29 +226,56 @@
             <div class="interface">
                 <div class="flex">
                     <div class="livros-box">
-                        <h3>Livro 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                        <img src=" " alt="Imagem livro"/>
+                        <h3>Orgulho e Preconceito</h3>
+                        <p>Jane Austen</p>
+                        <img class="img-box" src="imagem/livro1.jpg.jpg" alt="Imagem livro"/>
+
+                        <div class="btn-emprestar"> <!--botao de emmpréstimo-->
+                            <a href="#">
+                                <button>Emprestar</button>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="livros-box">
+                        <h3>O Jardim Secreto</h3>
+                        <p>Frances Hodgson Burnett</p>
+                        <img class="img-box" src="imagem/livro2.png.png" alt="Imagem livro"/>
+
+                        <div class="btn-emprestar"> <!--botao de emmpréstimo-->
+                            <a href="#">
+                                <button>Emprestar</button>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="livros-box">
-                        <h3>Livro 2</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                        <img src=" " alt="Imagem livro"/>
-                    </div>
+                        <h3>Dom Casmurro</h3>
+                        <p>Machado de Assis</p>
+                        <img class="img-box" src="imagem/livro3.jpg.jpg" alt="Imagem livro"/>
 
-                    <div class="livros-box">
-                        <h3>Livro 3</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                        <img src=" " alt="Imagem livro"/>
+                        <div class="btn-emprestar"> <!--botao de emmpréstimo-->
+                            <a href="#">
+                                <button>Emprestar</button>
+                            </a>
+                        </div>
                     </div>
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--especiliadades-->
+        <hr><br>
+        <h2 class="titulocontato">Contatos</h2><br>
+        <p><em>Entre em contato conosco para tirar possíveis dúvidas, enviar sua resenha e avaliação ou até mesmo sujestões de futuros livros para nosso acervo!</em></p><br>
+            <p class="contato1">E-mail: bblivros@bblivros.com</p><br>
+            <p class="contato1">Tel: (41)99999-9999</p><br>
+            <p class="contato2">Instagram: bblivrosonline</p><br>
+            <p class="contato2">Telegram: bblivrosonline</p><br>
+        </p>
+    </hr>
     </main>
 
     <footer>
-        teste
+        <p>&copy; 2024 Biblioteca Virtual. Todos os direitos reservados.</p>
     </footer>
 
 </body>
