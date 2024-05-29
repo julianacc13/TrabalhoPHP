@@ -169,13 +169,13 @@ body {
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slidein 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
 
 .sign-up-js .content::before {
-    animation: slideout 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slideout 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
@@ -481,11 +481,6 @@ body {
 
 footer{
     background-color: #5d653e;
-<<<<<<< HEAD
-=======
+    padding: 40px;
     color: white;
->>>>>>> 71fb2b68af4a02baf5ca5d3531326d75b6ad57d1
-    padding: 20px;
-    width: 100%;
-    text-align: center;
 }
