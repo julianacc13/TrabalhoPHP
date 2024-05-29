@@ -6,7 +6,7 @@
     <title>Acervo Livros</title>
     <style>
         * {
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: Georgia, 'Times New Roman', Times, serif; /*fonte pagina inteira*/
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -86,19 +86,24 @@
             margin: 0 auto;
             justify-content: center;
             align-items: center;
-            
+            flex-wrap: wrap;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
         }
 
         .card {
             cursor: pointer;
             width: 230px;
             min-width: 200px;
-            height: 200px;
-            min-height: 300px;
+            height: 300px;
             position: relative;
-            margin: 50px;
+            margin: 0;
             padding: 20px;
-            
         }
 
         .frente, .verso {
@@ -145,7 +150,7 @@
         }
 
         .verso {
-            background: #ffffff;
+            background: #c7c7c7;
             transform: rotateY(-180deg);
             padding: 20px;
         }
@@ -162,13 +167,31 @@
         }
 
         .box{
-
             text-align: left;
-            
         }
 
         img.img {
             width: 150px;
+        }
+
+        .btn-emprestar {
+            margin-top:30px;
+        }
+
+        .btn-emprestar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #9ca185;
+            border: 1px solid #9d564d;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .2s;
+            color: #000000;
+        }
+
+        .btn-emprestar button:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -184,8 +207,8 @@
             <nav class="menu-desktop"> <!-- menu de cima -->
                 <ul>
                     <b>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Acervo</a></li>
+                        <li><a href="Menu.html">Início</a></li>
+                        <li><a href="Acervo.html">Acervo</a></li>
                         <li><a href="#">Meus empréstimos</a></li>
                     </b>
                 </ul>
@@ -203,81 +226,98 @@
 
         <div class="linha1">
             <div class="box-card">
-                <a target="_blank" class="card">
-                    <div class="frente"><!-- imagem principal -->      
-                        <img class="img" src="imagem/AmorNaoObvio.jpg" alt="Livro 1"/>      
-                    </div><!-- Frente -->
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/AmorNaoObvio.jpg" alt="Livro 1"/>      
+                        </div><!-- Frente -->
 
-                    <div class="verso"> <!-- verso escrita -->
-                        <div class="box"> 
-                            <p>Genero: Romance LGBTQI+</p>
-                            <p>Autor(a): Elayne Baeta</p>
-                            <p>N° páginas: 392</p>
-                            <p>Ano de Lançamento: 2019</p>
-                            <p>Editora: Galeria Record</p>
-                        </div>
-                    </div><!-- Verso -->
-                </a><!-- Card 1 -->   
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance LGBTQI+</p>
+                                <p>Autor(a): Elayne Baeta</p>
+                                <p>N° páginas: 392</p>
+                                <p>Ano de Lançamento: 2019</p>
+                                <p>Editora: Galeria Record</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 1 -->
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/LivrariaDosAchadosPerdidos.jpg" alt="Livro 2"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Ficção</p>
+                                <p>Autor(a): Susan Wiggs</p>
+                                <p>N° páginas: 368</p>
+                                <p>Ano de Lançamento: 2020</p>
+                                <p>Editora: Harlequin Books</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 2 -->   
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/Aseleção.jpg" alt="Livro 3"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance</p>
+                                <p>Autor(a): Kiera Cass</p>
+                                <p>N° páginas: 368</p>
+                                <p>Ano de Lançamento: 2012</p>
+                                <p>Editora: Seguinte</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 3 -->  
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
                 
-                <a target="_blank" class="card">
-                    <div class="frente"><!-- imagem principal -->      
-                        <img class="img" src="imagem/LivrariaDosAchadosPerdidos.jpg" alt="Livro 2"/>      
-                    </div><!-- Frente -->
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/OceanoEntreNós.png" alt="Livro 4"/>      
+                        </div><!-- Frente -->
 
-                    <div class="verso"> <!-- verso escrita -->
-                        <div class="box"> 
-                            <p>Genero: Ficção</p>
-                            <p>Autor(a): Susan Wiggs</p>
-                            <p>N° páginas: 368</p>
-                            <p>Ano de Lançamento: 2020</p>
-                            <p>Editora: Harlequin Books</p>
-                        </div>
-                    </div><!-- Verso -->
-                </a><!-- Card 2 -->   
-
-                <a target="_blank" class="card">
-                    <div class="frente"><!-- imagem principal -->      
-                        <img class="img" src="imagem/Aseleção.jpg" alt="Livro 3"/>      
-                    </div><!-- Frente -->
-
-                    <div class="verso"> <!-- verso escrita -->
-                        <div class="box"> 
-                            <p>Genero: Romance</p>
-                            <p>Autor(a): Kiera Cass</p>
-                            <p>N° páginas: 368</p>
-                            <p>Ano de Lançamento: 2012</p>
-                            <p>Editora: Seguinte</p>
-
-                        </div>
-                    </div><!-- Verso -->
-                </a><!-- Card 3 -->  
-                
-                
-                <a target="_blank" class="card">
-                    <div class="frente"><!-- imagem principal -->      
-                        <img class="img" src="imagem/OceanoEntreNós.png" alt="Livro 4"/>      
-                    </div><!-- Frente -->
-
-                    <div class="verso"> <!-- verso escrita -->
-                        <div class="box"> 
-                            <p>Genero: Romance</p>
-                            <p>Autor(a): Tahereh Mafi</p>
-                            <p>N° páginas: 304</p>
-                            <p>Ano de Lançamento: 2021</p>
-                            <p>Editora: Universo dos Livros</p>
-                        </div>
-                        
-                    </div><!-- Verso -->
-                </a><!-- Card 4 -->   
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance</p>
+                                <p>Autor(a): Tahereh Mafi</p>
+                                <p>N° páginas: 304</p>
+                                <p>Ano de Lançamento: 2021</p>
+                                <p>Editora: Universo dos Livros</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 4 -->   
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
             </div><!-- fechamento linha 1 -->
 
-            <div class="linha1">
-                <div class="box-card">
+            <div class="box-card">
+                <div class="card-container">
                     <a target="_blank" class="card">
                         <div class="frente"><!-- imagem principal -->      
                             <img class="img" src="imagem/AssimQueComeça.jpg" alt="Livro 5"/>      
                         </div><!-- Frente -->
-        
+
                         <div class="verso"> <!-- verso escrita -->
                             <div class="box"> 
                                 <p>Genero: Romance</p>
@@ -288,12 +328,17 @@
                             </div>
                         </div><!-- Verso -->
                     </a><!-- Card 5 -->   
-                    
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
                     <a target="_blank" class="card">
                         <div class="frente"><!-- imagem principal -->      
                             <img class="img" src="imagem/DeSangueCinzas.jpg" alt="Livro 6"/>      
                         </div><!-- Frente -->
-        
+
                         <div class="verso"> <!-- verso escrita -->
                             <div class="box"> 
                                 <p>Genero: Fantasia</p>
@@ -304,12 +349,17 @@
                             </div>
                         </div><!-- Verso -->
                     </a><!-- Card 6 -->   
-        
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
                     <a target="_blank" class="card">
                         <div class="frente"><!-- imagem principal -->      
                             <img class="img" src="imagem/EmChamas.jpg" alt="Livro 7"/>      
                         </div><!-- Frente -->
-        
+
                         <div class="verso"> <!-- verso escrita -->
                             <div class="box"> 
                                 <p>Genero: Ficção</p>
@@ -320,12 +370,17 @@
                             </div>
                         </div><!-- Verso -->
                     </a><!-- Card 7 -->  
-                    
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
                     <a target="_blank" class="card">
                         <div class="frente"><!-- imagem principal -->      
                             <img class="img" src="imagem/TodoEsseTempo.jpg" alt="Livro 8"/>      
                         </div><!-- Frente -->
-        
+
                         <div class="verso"> <!-- verso escrita -->
                             <div class="box"> 
                                 <p>Genero: Romance</p>
@@ -336,75 +391,98 @@
                             </div>
                         </div><!-- Verso -->
                     </a><!-- Card 8 -->   
-                </div><!-- fechamento linha 1 -->
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+            </div><!-- fechamento linha 2 -->
 
-                <div class="linha1">
-                    <div class="box-card">
-                        <a target="_blank" class="card">
-                            <div class="frente"><!-- imagem principal -->      
-                                <img class="img" src="imagem/PacienteSilenciosa.jpg" alt="Livro 9"/>      
-                            </div><!-- Frente -->
-            
-                            <div class="verso"> <!-- verso escrita -->
-                                <div class="box"> 
-                                    <p>Genero: Suspense</p>
-                                    <p>Autor(a): Alex Michaelides</p>
-                                    <p>N° páginas: 350</p>
-                                    <p>Ano de Lançamento: 2019</p>
-                                    <p>Editora: Record</p>
-                                </div>
-                            </div><!-- Verso -->
-                        </a><!-- Card 9 -->   
-                        
-                        <a target="_blank" class="card">
-                            <div class="frente"><!-- imagem principal -->      
-                                <img class="img" src="imagem/SomosInevitáveis.jpg" alt="Livro 10"/>      
-                            </div><!-- Frente -->
-            
-                            <div class="verso"> <!-- verso escrita -->
-                                <div class="box"> 
-                                    <p>Genero: Romance</p>
-                                    <p>Autor(a): Gayle Forman</p>
-                                    <p>N° páginas: 256</p>
-                                    <p>Ano de Lançamento: 2022</p>
-                                    <p>Editora: Arqueiro</p>
-                                </div>
-                            </div><!-- Verso -->
-                        </a><!-- Card 10 -->   
-            
-                        <a target="_blank" class="card">
-                            <div class="frente"><!-- imagem principal -->      
-                                <img class="img" src="imagem/PrincipeCruel.jpg" alt="Livro 11"/>      
-                            </div><!-- Frente -->
-            
-                            <div class="verso"> <!-- verso escrita -->
-                                <div class="box"> 
-                                    <p>Genero: Fantasia</p>
-                                    <p>Autor(a): Holly Black</p>
-                                    <p>N° páginas: 322</p>
-                                    <p>Ano de Lançamento: 2018</p>
-                                    <p>Editora: Galera Record</p>
-                                </div>
-                            </div><!-- Verso -->
-                        </a><!-- Card 11 -->  
-                        
-                        <a target="_blank" class="card">
-                            <div class="frente"><!-- imagem principal -->      
-                                <img class="img" src="imagem/CorteAsasRuinas.jpg" alt="Livro 12"/>      
-                            </div><!-- Frente -->
-            
-                            <div class="verso"> <!-- verso escrita -->
-                                <div class="box"> 
-                                    <p>Genero: Fantasia Romantica</p>
-                                    <p>Autor(a): Sara J.Maas</p>
-                                    <p>N° páginas: 600</p>
-                                    <p>Ano de Lançamento: 2017</p>
-                                    <p>Editora: Galera Record</p>
-                                </div>
-                            </div><!-- Verso -->
-                        </a><!-- Card 12 -->   
-                    </div><!-- fechamento linha 3 -->
-                </div><!-- Box Card -->
+            <div class="box-card">
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/PacienteSilenciosa.jpg" alt="Livro 9"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Suspense</p>
+                                <p>Autor(a): Alex Michaelides</p>
+                                <p>N° páginas: 350</p>
+                                <p>Ano de Lançamento: 2019</p>
+                                <p>Editora: Record</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 9 -->   
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/SomosInevitáveis.jpg" alt="Livro 10"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Romance</p>
+                                <p>Autor(a): Gayle Forman</p>
+                                <p>N° páginas: 256</p>
+                                <p>Ano de Lançamento: 2022</p>
+                                <p>Editora: Arqueiro</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 10 -->   
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/PrincipeCruel.jpg" alt="Livro 11"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Fantasia</p>
+                                <p>Autor(a): Holly Black</p>
+                                <p>N° páginas: 322</p>
+                                <p>Ano de Lançamento: 2018</p>
+                                <p>Editora: Galera Record</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 11 -->  
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <a target="_blank" class="card">
+                        <div class="frente"><!-- imagem principal -->      
+                            <img class="img" src="imagem/CorteAsasRuinas.jpg" alt="Livro 12"/>      
+                        </div><!-- Frente -->
+
+                        <div class="verso"> <!-- verso escrita -->
+                            <div class="box"> 
+                                <p>Genero: Fantasia Romantica</p>
+                                <p>Autor(a): Sara J.Maas</p>
+                                <p>N° páginas: 600</p>
+                                <p>Ano de Lançamento: 2017</p>
+                                <p>Editora: Galera Record</p>
+                            </div>
+                        </div><!-- Verso -->
+                    </a><!-- Card 12 -->   
+                    <div class="btn-emprestar"> <!-- botão de empréstimo -->
+                        <button>Emprestar</button>
+                    </div>
+                </div>
+            </div><!-- fechamento linha 3 -->
+        </div><!-- Box Card -->
     </main>
 
     <footer>
@@ -413,7 +491,6 @@
 
 </body>
 </html>
-
 
 
 
