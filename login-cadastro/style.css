@@ -143,14 +143,24 @@ body {
     order: 1;
     z-index: -1;
 }
-.password { /*lembrar senha*/
-    color: #34495e;
-    font-size: 14px;
-    margin: 15px 0;
-    text-align: center;
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
+.checkbox-container input[type="checkbox"] {
+    width: 15px;
+    height:20px;
+    margin-right: 10px;
+    margin-left: 70px;
+}
 
 .sign-in-js .first-content .first-column {
     z-index: -1;
@@ -483,4 +493,5 @@ footer{
     background-color: #5d653e;
     padding: 40px;
     color: white;
+    text-align: center;
 }

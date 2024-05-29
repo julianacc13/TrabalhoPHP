@@ -52,8 +52,8 @@
             padding: 10px 40px;
             font-size: 18px;
             font-weight: 600;
-            background-color: #9ca185;
-            border: 1px solid #9d564d;
+            background-color: #be8983;
+            border: none;
             border-radius: 10px;
             cursor: pointer;
             transition: .2s;
@@ -70,6 +70,7 @@
 
         button:hover{ /*hover dos botoens*/
             transform: scale(1.05);
+            background-color: #9d564d;
         }
 
         /* ESTILO DO CABEÇALHO */
@@ -139,7 +140,7 @@
             margin-right: auto; 
             height: 500px;
             transition: .2s;
-            background-color: #be8983;
+            background-color: #9ca185;
         }
 
         .livros .livros-box:hover { /*hover box de livros*/
@@ -189,7 +190,7 @@
         .titulocontato{
             color: #5d653e;
             float: left;
-            margin-top: -10px;
+            margin-top: -15px;
         }
         .Contatos p{
             float: left;
@@ -223,13 +224,13 @@
                     <b>
                     <li><a href="Menu.html">Início</a></li>
                     <li><a href="Acervo.html">Acervo</a></li>
-                    <li><a href="#">Meus Empréstimos</a></li>
+                    <li><a href="MeusEmprestimos.html">Meus Empréstimos</a></li>
                 </b>
                 </ul>
             </nav>
 
             <div class="btn-criarConta"> <!--botao criarConta de cima-->
-                <a href="#">
+                <a href="login-cadastro/login.html">
                     <button>Criar Conta</button>
                 </a>
             </div>
@@ -242,7 +243,7 @@
                         <p><em>Explore nossa vasta coleção de livros digitais, mergulhe em mundos imaginários, viaje por épocas e culturas, e descubra o poder transformador das palavras.</em></p>
 
                         <div class="btn-entrar">
-                            <a href="#">
+                            <a href="login-cadastro/login.html">
                                 <button>Entre com sua conta</button>
                             </a>
                         </div>
@@ -301,9 +302,8 @@
         <h2 class="titulo-servicos">Serviços</h2>
                 <nav class="servicos"> <!--menu parte de baixo-->
                     <ul>
-                        <a href="#">Acervo</a><br>
-                        <a href="#">Minhas Reservas</a><br>
-                        <a href="#">Sobre</a><br>
+                        <a href="Acervo.html">Acervo</a><br>
+                        <a href="MeusEmprestimos.html">Meus Empréstimos</a><br>
                     </ul>
                 </nav>
         </div>
