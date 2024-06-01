@@ -179,13 +179,13 @@ body {
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slidein 1.0s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
 
 .sign-up-js .content::before {
-    animation: slideout 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slideout 1.0s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
