@@ -222,7 +222,7 @@
             <nav class="menu-desktop"> <!--menu de cima-->
                 <ul>
                     <b>
-                    <li><a href="Menu.html">Início</a></li>
+                    <li><a href="Menu.php">Início</a></li>
                     <li><a href="Acervo.html">Acervo</a></li>
                     <li><a href="MeusEmprestimos.html">Meus Empréstimos</a></li>
                 </b>

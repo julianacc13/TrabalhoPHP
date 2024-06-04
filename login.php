@@ -1,71 +1,68 @@
 <?php
-    // Inicia a sessão
-    session_start();
+session_start();
+include 'db.php';
 
-    // Verifica se um cookie de usuário existe, caso contrário cria um
-    if(!isset($_COOKIE['user'])) {
-        setcookie('user', 'login', time() + (86400 * 30), "/");
-    }
+$mensagem = '';
+$mensagemEmail = '';
+$mensentrada = '';
 
-    // Define uma variável para o nome do usuário a partir do cookie
-    $username = isset($_COOKIE['user']) ? $_COOKIE['user'] : 'login';
+if (isset($_POST['entrar'])) {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $remember = isset($_POST['remember']) ? $_POST['remember'] : '';
 
-    // Variáveis para mensagens
-    $mensagem = '';
-    $mensagemEmail = '';
-    $mensentrada = '';
-
-    
-
-
-    // Verifica se o formulário foi enviado
-    if(isset($_POST['entrar'])){//valida os campos quando aperta no botao enviar
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $remember = isset($_POST['remember']) ? $_POST['remember'] : '';
-
-    if(empty($_POST['email']) || empty($_POST['senha']) ){
+    if (empty($email) || empty($senha)) {
         $mensagem = "<p style='color:red;'>Erro! Necessário preencher todos os campos.</p>";
-    }else{
-        $mensentrada = "<p> Bem Vindo! </p>";
-    }
-        // a função filter_var filtra uma variavel com filtro especificado, neste caso o email
-        //O filtro FILTER_VALIDATE_EMAIL valida a estrutura do e-mail informado
-
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        $mensagemEmail = "<p style='color:red;'>Erro! Email informado não tem estrutura válida.</p>";
-    }
-    if ($remember === 'on') {
-        setcookie('email', $email, time() + (86400 * 1), "/"); // Cookie de email para 30 dias
-        setcookie('senha', $senha, time() + (86400 * 1), "/"); // Cookie de senha para 30 dias
-    }
-        //tratamento para verificar se a variavel ta sendo colocada ou nao
-        // a função filter_var filtra uma variavel com filtro especificado, neste caso o email
-        //O filtro FILTER_VALIDATE_EMAIL valida a estrutura do e-mail informado
-    }
-    if(isset($_POST['cadastrar'])){
-        $nome = $_POST['nome'];//declara as mesmas variaveis do "name" la no html
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        //tratamento para verificar se a variavel ta sendo colocada ou nao
-        if(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) ){
-            $mensagem = "<p style='color:red;'>Erro! Necessário preencher todos os campos.</p>";
-        }else{
-            $mensentrada = " Usuario Cadastrado.";
-        }
-        // a função filter_var filtra uma variavel com filtro especificado, neste caso o email
-        //O filtro FILTER_VALIDATE_EMAIL valida a estrutura do e-mail informado
-
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+    } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $mensagemEmail = "<p style='color:red;'>Erro! Email informado não tem estrutura válida.</p>";
-        }
-        //tratamento para verificar se a variavel ta sendo colocada ou nao
-        // a função filter_var filtra uma variavel com filtro especificado, neste caso o email
-        //O filtro FILTER_VALIDATE_EMAIL valida a estrutura do e-mail informado
+        } else {
+            $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = :email");
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-       
+            if ($user && password_verify($senha, $user['senha'])) {
+                $_SESSION['user'] = $user['nome'];
+                $mensentrada = "<p>Bem Vindo, {$user['nome']}!</p>";
+                if ($remember === 'on') {
+                    setcookie('email', $email, time() + (86400 * 30), "/");
+                    setcookie('senha', $senha, time() + (86400 * 30), "/");
+                }
+            } else {
+                $mensagem = "<p style='color:red;'>Erro! Nome de usuário ou senha incorretos.</p>";
+            }
+        }
     }
+}
+
+if (isset($_POST['cadastrar'])) {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if (empty($nome) || empty($email) || empty($senha)) {
+        $mensagem = "<p style='color:red;'>Erro! Necessário preencher todos os campos.</p>";
+    } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $mensagemEmail = "<p style='color:red;'>Erro! Email informado não tem estrutura válida.</p>";
+        } else {
+            $hashedPassword = password_hash($senha, PASSWORD_BCRYPT);
+            $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)");
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':senha', $hashedPassword);
+
+            if ($stmt->execute()) {
+                $mensentrada = "Usuário Cadastrado com sucesso.";
+            } else {
+                $mensagem = "<p style='color:red;'>Erro! Não foi possível cadastrar o usuário.</p>";
+            }
+        }
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -74,7 +71,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> <!--imagens icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
     <main>
@@ -107,17 +104,15 @@
                         <button class="btn btn-second" name="cadastrar">Cadastrar</button>
                     </form>
                     <?php 
-                        // Exibe as mensagens de erro ou sucesso
                         echo $mensagem;
                         echo $mensagemEmail;
                         echo $mensentrada;
                     ?>
-                </div><!-- second column -->
-            </div><!-- first content -->
+                </div>
+            </div>
             <div class="content second-content">
                 <div class="first-column">
                     <h2 class="title title-primary">Faça seu cadastro</h2>
-                    <p></p>
                     <button id="signup" class="btn btn-primary">Cadastrar</button>
                 </div>
                 <div class="second-column">
@@ -140,16 +135,14 @@
                         </div>
 
                         <button class="btn btn-second" name="entrar">Entrar</button>
-                        
                     </form>
                     <?php 
-                        // Exibe as mensagens de erro ou sucesso
                         echo $mensagem;
                         echo $mensagemEmail;
                         echo $mensentrada;
                     ?>
-                </div><!-- second column -->
-            </div><!-- second-content -->
+                </div>
+            </div>
         </div>
         <script src="script.js"></script>
         
@@ -157,3 +150,4 @@
     </main>
 </body>
 </html>
+
